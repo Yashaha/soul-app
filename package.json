@@ -1,7 +1,7 @@
 {
   "name": "soul-app",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "基于Vue.js开发的高仿Soul app社交软件SPA",
   "author": "yashaha",
   "private": true,
   "scripts": {

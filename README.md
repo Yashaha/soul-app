@@ -1,14 +1,17 @@
-# soul-app
+# 基于Vue.js开发的高仿Soul app社交软件SPA
 
-> A Vue.js project
+### 使用vue框架开发SPA的练手项目，旨在提高实战能力，以及从项目本身中巩固所学知识，积累经验。
 
-## Build Setup
+## 在线演示(按照项目进度更新)
+注意：PC端建议使用开发者工具，模拟手机尺寸预览
+[Soul App在线演示](https://yashaha.github.io/)
 
-``` bash
-# install dependencies
+## 使用说明
+```
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:1874
+# 运行（localhost:1874）
 npm run dev
 
 # build for production with minification
@@ -18,4 +21,16 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 技术栈(按照项目进度更新)
+  - vue
+  - vue-cli
+  - vue-router
+
+## 当前项目进度
+- [x] 页面骨架
+- [x] Soul欢迎页面
+- [ ] 星球
+- [ ] 广场
+- [ ] 发布瞬间
+- [ ] 聊天
+- [ ] 自己
