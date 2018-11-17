@@ -25,12 +25,17 @@ npm run build --report
   - vue
   - vue-cli
   - vue-router
+  - ESLint
 
 ## 当前项目进度
 - [x] 页面骨架
 - [x] Soul欢迎页面
+- [x] 导航栏
 - [ ] 星球
 - [ ] 广场
 - [ ] 发布瞬间
 - [ ] 聊天
 - [ ] 自己
+
+## 参考资料
+[zhaohaodang/vue-WeChat](https://github.com/zhaohaodang/vue-WeChat)

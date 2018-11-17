@@ -11,7 +11,7 @@
     <!-- 底部导航栏 -->
     <soul-nav></soul-nav>
   </div>
-</template>
+</template>zi
 
 <script>
 import SoulWelcome from './components/common/SoulWelcome'
@@ -26,4 +26,9 @@ export default {
 </script>
 
 <style>
+  /*引入基础样式*/
+  @import "./assets/css/reset.css";
+
+  /*引入CSS变量*/
+  @import "./assets/css/variables.css"
 </style>

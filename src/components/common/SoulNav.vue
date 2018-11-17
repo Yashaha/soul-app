@@ -1,5 +1,32 @@
 <template>
-  <div>底部导航栏</div>
+  <div class="soul-nav">
+    <nav>
+      <router-link to="/soulstar" tag="dl">
+        <dt><img src=""></dt>
+        <dd>星球</dd>
+      </router-link>
+
+      <router-link to="/soulsquare" tag="dl">
+        <dt><img src=""></dt>
+        <dd>广场</dd>
+      </router-link>
+
+      <router-link to="/souladd" tag="dl">
+        <dt><img src=""></dt>
+        <dd>Add</dd>
+      </router-link>
+
+      <router-link to="/soulchat" tag="dl">
+        <dt><img src=""></dt>
+        <dd>聊天</dd>
+      </router-link>
+
+      <router-link to="/soulself" tag="dl">
+        <dt><img src=""></dt>
+        <dd>自己</dd>
+      </router-link>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -9,4 +36,31 @@ export default {
 </script>
 
 <style>
+.soul-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--soul-nav-background-color, #fff);
+  box-shadow: 0rem -0.05rem 0.5rem var(--soul-nav-box-shadow-color);
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  height: 1rem;
+}
+nav dl {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+nav dt {
+  height: 0.7rem;
+}
+nav dd {
+  line-height: 0.2rem;
+  font-size: 0.2rem;
+}
 </style>

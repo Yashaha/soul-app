@@ -1,7 +1,7 @@
 <template>
   <div
-    class="soulwelcome"
-    :class="{soulwelcomehide: soulwelcomehide}"
+    class="soul-welcome"
+    :class="{'soul-welcome-hide': soulwelcomehide}"
   >
     <img src="../../assets/images/photo_soul_logo_black.png">
   </div>
@@ -28,7 +28,7 @@ export default {
 /*
 使用flex布局
 */
-.soulwelcome {
+.soul-welcome {
   position: fixed;
   display: flex;
   display: -webkit-flex;
@@ -42,12 +42,13 @@ export default {
   height: 100%;
   background-color: #fff;
   transition: 0.5s;
+  z-index: 999;
 }
-.soulwelcomehide {
+.soul-welcome-hide {
   opacity: 0;
   visibility: hidden;
 }
-.soulwelcome img {
+.soul-welcome img {
   margin: 25%;
   width: 50%;
 }
