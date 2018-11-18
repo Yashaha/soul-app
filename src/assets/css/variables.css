@@ -1,6 +1,13 @@
 :root {
+  /*z-index层级*/
+  --content: 0; /*内容层*/
+  --nav: 1; /*底部导航层*/
+  --header: 2; /*头部层，因为有的页面只有头部，没有底部导航栏，所以将nav和header层做出区分*/
+  --mask: 3; /*遮罩层*/
+  --popout: 4; /*弹出层，配合遮罩层使用*/
+
   /*颜色*/
-  --soul-nav-background-color: #fff; /* nav的背景颜色 */
+  --soul-background-color: #fff; /* 的背景颜色 */
   --soul-box-shadow-color: #D6D6D6; /* header和nav的阴影颜色 */
 
   /*模糊距离*/

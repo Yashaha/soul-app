@@ -1,6 +1,5 @@
 <template>
-  <div class="soul-nav">
-    <nav>
+    <nav class="soul-nav">
       <router-link to="/soulstar" tag="dl">
         <dt><img src=""></dt>
         <dd>星球</dd>
@@ -26,7 +25,6 @@
         <dd>自己</dd>
       </router-link>
     </nav>
-  </div>
 </template>
 
 <script>
@@ -41,16 +39,15 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: var(--soul-nav-background-color, #fff);
+  display: flex;
+  height: 1rem;
+  background-color: var(--soul-background-color, #fff);
   box-shadow:
   0rem
   -0.05rem
   var(--soul-box-shadow-blur, 0.35rem)
   var(--soul-box-shadow-color, #D6D6D6);
-}
-nav {
-  display: flex;
-  height: 1rem;
+  z-index: var(--nav);
 }
 nav dl {
   width: 20%;

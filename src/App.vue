@@ -11,7 +11,7 @@
     <!-- 底部导航栏 -->
     <soul-nav></soul-nav>
   </div>
-</template>zi
+</template>
 
 <script>
 import SoulWelcome from './components/common/SoulWelcome'
