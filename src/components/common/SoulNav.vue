@@ -46,7 +46,6 @@ export default {
 }
 nav {
   display: flex;
-  justify-content: space-around;
   height: 1rem;
 }
 nav dl {
