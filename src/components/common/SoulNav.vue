@@ -42,7 +42,11 @@ export default {
   left: 0;
   right: 0;
   background-color: var(--soul-nav-background-color, #fff);
-  box-shadow: 0rem -0.05rem 0.5rem var(--soul-nav-box-shadow-color);
+  box-shadow:
+  0rem
+  -0.05rem
+  var(--soul-box-shadow-blur, 0.35rem)
+  var(--soul-box-shadow-color, #D6D6D6);
 }
 nav {
   display: flex;

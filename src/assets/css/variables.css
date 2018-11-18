@@ -1,3 +1,8 @@
 :root {
-  --soul-nav-box-shadow-color: #D6D6D6;
+  /*颜色*/
+  --soul-nav-background-color: #fff; /* nav的背景颜色 */
+  --soul-box-shadow-color: #D6D6D6; /* header和nav的阴影颜色 */
+
+  /*模糊距离*/
+  --soul-box-shadow-blur: 0.35rem;
 }
