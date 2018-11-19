@@ -7,10 +7,10 @@
   >
     <template slot="left">照相机</template>
     <template slot="center">
-      <div>
-        <span :class="{'soul-square-header-bold': isFollowBold}">关注</span>
-        <span :class="{'soul-square-header-bold': isRecommendBold}"> 推荐 </span>
-        <span :class="{'soul-square-header-bold': isNewestBold}">最新</span>
+      <div class="soul-square-header-center">
+        <span :class="{'soul-square-header-enabled': isFollowEnabled}">关注</span>
+        <span :class="{'soul-square-header-enabled': isRecommendEnabled}">推荐</span>
+        <span :class="{'soul-square-header-enabled': isNewestEnabled}">最新</span>
       </div>
     </template>
     <template slot="right">随机音</template>
@@ -45,26 +45,29 @@ export default {
     }
   },
   computed: {
-    isFollowBold: {
+    isFollowEnabled: {
       get: function () {
         return (this.contentIndex === 0)
       }
-    }, // 判断'关注'是否加粗
-    isRecommendBold: {
+    }, // 判断'关注'是否选中
+    isRecommendEnabled: {
       get: function () {
         return (this.contentIndex === 1)
       }
-    }, // 判断'推荐'是否加粗
-    isNewestBold: {
+    }, // 判断'推荐'是否选中
+    isNewestEnabled: {
       get: function () {
         return (this.contentIndex === 2)
       }
-    } // 判断'最新'是否加粗
+    } // 判断'最新'是否选中
   },
   watch: {
     // 不要用箭头函数，否则不能操作data
     moveClientY: function () {
       this.isHide = (this.moveClientY < 0)
+    },
+    contentIndex: function () {
+      this.isHide = false // 切换栏目的时候也要显示header
     }
   }
 }
@@ -82,7 +85,14 @@ export default {
 .soul-square-header-hide {
   top: -1.02rem;
 }
-.soul-square-header-bold {
+.soul-square-header-center {
+  display: flex;
+  justify-content: space-between;
+}
+.soul-square-header-center span {
+  width: 0.95rem;
+}
+.soul-square-header-enabled {
   color: var(--soul-font-enabled-color, #000);
 }
 </style>

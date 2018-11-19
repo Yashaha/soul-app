@@ -1,7 +1,6 @@
 <template>
   <div
     class="soul-square-content"
-    :class="{'soul-square-content-hide': isHide}"
     @touchstart="handleTouchStart"
     @touchmove="handleTouchMove"
     @touchend="handleTouchEnd"
@@ -27,7 +26,6 @@ export default {
       currentClientY: 0, // 当前触碰的Y值
       moveClientY: 0, // Y轴移动的距离
       timer: null, // 节流器
-      isHide: false, // 判断content是否收起，小于0收起；大于0出现
       contentIndex: 1, // 当前swiper的index值
       swiperOption: {
         on: {
@@ -69,7 +67,6 @@ export default {
         this.moveClientY = this.currentClientY - this.preClientY // 更新Y轴移动距离
         this.preClientY = this.currentClientY // 下次执行的时候，preClientY变成当前的currentClientY
         this.$emit('touchChange', this.moveClientY) // 向父组件传递touchChange事件，携带moveClientY的值
-        this.isHide = (this.moveClientY < 0)
       }, 16)
     },
     handleTouchEnd (e) {
@@ -85,11 +82,7 @@ export default {
 <style>
 .soul-square-content {
   position: relative;
-  margin-top: 1rem;
   transition: 0.5s;
   z-index: var(--content);
-}
-.soul-square-content-hide {
-  margin-top: 0;
 }
 </style>

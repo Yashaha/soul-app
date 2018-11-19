@@ -1,11 +1,16 @@
 <template>
   <div>
+    <!-- 头部 -->
     <soul-square-header
       :contentIndex="this.contentIndex"
       :moveClientY="this.moveClientY"
     >
     </soul-square-header>
 
+    <!-- 搜索框 -->
+    <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
+
+    <!-- 内容 -->
     <soul-square-content
       @contentIndexChange="handleContentIndexChange"
       @touchChange="handleTouchChange"
@@ -19,11 +24,13 @@
 
 <script>
 import SoulSquareHeader from './components/Header'
+import SoulSquareSearch from './components/Search'
 import SoulSquareContent from './components/Content'
 export default {
   name: 'SoulSquare',
   components: {
     SoulSquareHeader,
+    SoulSquareSearch,
     SoulSquareContent
   },
   data () {
