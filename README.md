@@ -39,3 +39,4 @@ npm run build --report
 
 ## 参考资料
 [zhaohaodang/vue-WeChat](https://github.com/zhaohaodang/vue-WeChat)
+[animate.css](https://github.com/daneden/animate.css)

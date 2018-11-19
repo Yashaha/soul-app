@@ -6,70 +6,14 @@
     @touchmove="handleTouchMove"
     @touchend="handleTouchEnd"
   >
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
-    <p>内容</p>
+    <swiper
+      :options="swiperOption"
+      ref="soulSquareContentSwiper"
+    >
+      <swiper-slide><slot name="follow"></slot></swiper-slide>
+      <swiper-slide><slot name="recommend"></slot></swiper-slide>
+      <swiper-slide><slot name="newest"></slot></swiper-slide>
+    </swiper>
   </div>
 </template>
 
@@ -77,13 +21,38 @@
 export default {
   name: 'SoulSquareContent',
   data () {
+    const that = this
     return {
       preClientY: 0, // 上次触碰的Y值
       currentClientY: 0, // 当前触碰的Y值
       moveClientY: 0, // Y轴移动的距离
       timer: null, // 节流器
-      isHide: false // 判断content是否收起，小于0收起；大于0出现
+      isHide: false, // 判断content是否收起，小于0收起；大于0出现
+      contentIndex: 1, // 当前swiper的index值
+      swiperOption: {
+        on: {
+          // 获取当前swiper的index值
+          slideChangeTransitionStart: function () {
+            that.contentIndex = this.activeIndex
+          }
+        }
+      } // Swiper设置
     }
+  },
+  computed: {
+    swiper () {
+      return this.$refs.soulSquareContentSwiper.swiper
+    }
+  },
+  watch: {
+    // 不要用箭头函数，否则不能操作data
+    // swiper的index值发生改变，触发事件，并返回新的index值
+    contentIndex: function (newValue) {
+      this.$emit('contentIndexChange', newValue)
+    }
+  },
+  mounted () {
+    this.swiper.slideTo(1) // 切换到‘推荐’页面
   },
   methods: {
     handleTouchStart (e) {

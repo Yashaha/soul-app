@@ -60,6 +60,7 @@ nav dt {
   height: 0.7rem;
 }
 nav dd {
+  color: var(--soul-font-disabled-color, #A6A6A6);
   line-height: 0.2rem;
   font-size: 0.2rem;
 }

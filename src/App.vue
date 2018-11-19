@@ -29,6 +29,9 @@ export default {
   /*引入基础样式*/
   @import "./assets/css/reset.css";
 
+  /*引入animate.css*/
+  @import "./assets/css/lib/animate.css";
+
   /*引入CSS变量*/
-  @import "./assets/css/variables.css"
+  @import "./assets/css/variables.css";
 </style>
