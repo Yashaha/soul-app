@@ -15,9 +15,27 @@
       @contentIndexChange="handleContentIndexChange"
       @touchChange="handleTouchChange"
     >
-      <div style="height: 1000px" slot="follow">关注</div>
-      <div style="height: 1000px" slot="recommend">推荐</div>
-      <div style="height: 1000px" slot="newest">最新</div>
+      <div style="height: 1000px" slot="follow">
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+      </div>
+      <div style="height: 1000px" slot="recommend">
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+      </div>
+      <div style="height: 1000px" slot="newest">
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+        <soul-cell-item></soul-cell-item>
+      </div>
     </soul-square-content>
   </div>
 </template>
@@ -26,12 +44,14 @@
 import SoulSquareHeader from './components/Header'
 import SoulSquareSearch from './components/Search'
 import SoulSquareContent from './components/Content'
+import SoulCellItem from '../common/SoulCellItem'
 export default {
   name: 'SoulSquare',
   components: {
     SoulSquareHeader,
     SoulSquareSearch,
-    SoulSquareContent
+    SoulSquareContent,
+    SoulCellItem
   },
   data () {
     return {

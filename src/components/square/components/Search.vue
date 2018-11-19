@@ -34,18 +34,19 @@ export default {
 
 <style>
 .soul-square-search {
-  background-color: var(--soul-background--color-search, #F6F6F6);
+  background-color: var(--soul-background-color-search, #F6F6F6);
   display: flex;
-  height: 0.55rem;
+  height: 0.65rem;
   margin-top: 1rem;
   margin-bottom: 0.04rem;
   padding: 0.1rem 0.2rem 0.1rem 0.2rem;
   transition: 0.5s;
+  z-index: var(--content, 0);
 }
 .soul-square-search-icon {
   width: 10%;
-  height: 0.55rem;
-  line-height: 0.55rem;
+  height: 0.65rem;
+  line-height: 0.65rem;
   text-align: center;
   background-color: #fff;
   border-top-left-radius: 0.1rem;
@@ -53,7 +54,7 @@ export default {
 }
 .soul-square-search-input {
   width: 90%;
-  height: 0.55rem;
+  height: 0.65rem;
   background-color: #fff;
   border-top-right-radius: 0.1rem;
   border-bottom-right-radius: 0.1rem;

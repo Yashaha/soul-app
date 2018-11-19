@@ -47,7 +47,7 @@ export default {
   -0.05rem
   var(--soul-box-shadow-blur, 0.35rem)
   var(--soul-box-shadow-color, #D6D6D6);
-  z-index: var(--nav);
+  z-index: var(--nav, 1);
 }
 nav dl {
   width: 20%;

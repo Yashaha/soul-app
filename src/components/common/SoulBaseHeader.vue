@@ -45,6 +45,7 @@ export default {
   height: 1rem;
   transition: 0.5s;
   background-color: var(--soul-background-color, #fff);
+  z-index: var(--header, 2);
 }
 .soul-header-fixed {
   position: fixed;

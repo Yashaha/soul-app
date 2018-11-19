@@ -8,10 +8,12 @@
 
   /*颜色*/
   --soul-background-color: #fff; /* 白色。背景颜色 */
-  --soul-background--color-search: #F6F6F6;
+  --soul-background-color-search: #F6F6F6; /* 一种灰色。搜索框背景的颜色 */
+  --soul-background-color-cell-divide: #F6F6F6; /* 一种灰色。搜索框背景的颜色 */
   --soul-box-shadow-color: #D6D6D6; /* 浅浅的灰色。header和nav的阴影颜色 */
   --soul-font-disabled-color: #A6A6A6; /* 淡灰色。不可选中的文字，如底部导航栏、广场顶部header、预览聊天记录、时间戳等 */
   --soul-font-enabled-color: #000; /* 黑色。可选中的文字，如瞬间、聊天顶部header */
+  --soul-font-square-name-color: #26D4D0; /* 青色。广场瞬间的名字 */
 
   /*杂项*/
   --soul-box-shadow-blur: 0.35rem; /* header和nav模糊距离 */
