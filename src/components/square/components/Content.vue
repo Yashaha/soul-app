@@ -9,14 +9,15 @@
       :options="swiperOption"
       ref="soulSquareContentSwiper"
     >
-      <swiper-slide><slot name="follow"></slot></swiper-slide>
-      <swiper-slide><slot name="recommend"></slot></swiper-slide>
-      <swiper-slide><slot name="newest"></slot></swiper-slide>
+      <swiper-slide class="swiper-follow" :style="styleObject"><slot name="follow"></slot></swiper-slide>
+      <swiper-slide class="swiper-recommend" :style="styleObject"><slot name="recommend"></slot></swiper-slide>
+      <swiper-slide class="swiper-newest" :style="styleObject"><slot name="newest"></slot></swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
   name: 'SoulSquareContent',
   data () {
@@ -27,6 +28,13 @@ export default {
       moveClientY: 0, // Y轴移动的距离
       timerTouchMove: null, // 节流器
       contentIndex: 1, // 当前swiper的index值
+      bScrollFollow: '', // Bscroll不直接使用let定义，否则浏览器会出现定义了没使用的警告
+      bScrollRecommend: '',
+      bScrollNewest: '',
+      styleObject: {
+        overflow: 'scroll',
+        height: (window.innerHeight - 1.85 * 50) + 'px'
+      }, // 给slide定义高度，才不会滑动一个slide导致另一个slide也跟着滑动，1.85*50是header和search的总高度
       swiperOption: {
         resistanceRatio: 0, // swiper到达边缘不能继续滑动
         on: {
@@ -39,6 +47,7 @@ export default {
     }
   },
   computed: {
+    // 使用swiper必须要写的
     swiper () {
       return this.$refs.soulSquareContentSwiper.swiper
     }
@@ -52,6 +61,9 @@ export default {
   },
   mounted () {
     this.swiper.slideTo(1) // 切换到‘推荐’页面
+    this.bScrollFollow = new BScroll('.swiper-follow')
+    this.bScrollRecommend = new BScroll('.swiper-recommend')
+    this.bScrollNewest = new BScroll('.swiper-newest')
   },
   methods: {
     handleTouchStart (e) {
