@@ -42,3 +42,4 @@ npm run build --report
 2. [animate.css](https://github.com/daneden/animate.css)
 3. [Vue-Awesome-Swiper](https://github.com/surmon-china/vue-awesome-swiper)
 4. [vue-photo-preview](https://github.com/826327700/vue-photo-preview)
+5. [better-scroll](https://github.com/ustbhuangyi/better-scroll)

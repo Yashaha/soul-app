@@ -7,15 +7,14 @@
     >
     </soul-square-header>
 
-    <!-- 搜索框 -->
-    <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
-
     <!-- 内容 -->
     <soul-square-content
       @contentIndexChange="handleContentIndexChange"
       @touchChange="handleTouchChange"
     >
       <div slot="follow">
+        <!-- 搜索框 -->
+        <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
@@ -23,6 +22,8 @@
         <soul-cell-item></soul-cell-item>
       </div>
       <div slot="recommend">
+        <!-- 搜索框 -->
+        <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
         <soul-cell-item :options="cellItemOption1"></soul-cell-item>
         <soul-cell-item :options="cellItemOption2"></soul-cell-item>
         <soul-cell-item></soul-cell-item>
@@ -30,6 +31,8 @@
         <soul-cell-item></soul-cell-item>
       </div>
       <div slot="newest">
+        <!-- 搜索框 -->
+        <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
