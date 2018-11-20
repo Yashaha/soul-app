@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
   name: 'SoulSquareContent',
   data () {
@@ -60,6 +61,9 @@ export default {
   },
   mounted () {
     this.swiper.slideTo(1) // 切换到‘推荐’页面
+    this.bScrollFollow = new BScroll('.swiper-follow', {click: true, tap: true})
+    this.bScrollRecommend = new BScroll('.swiper-recommend', {click: true, tap: true})
+    this.bScrollNewest = new BScroll('.swiper-newest', {click: true, tap: true})
   },
   methods: {
     handleTouchStart (e) {

@@ -3,7 +3,7 @@
       class="soul-square-search"
       :class="{'soul-square-search-hide': isHide}"
   >
-    <i class="soul-square-search-icon">图标</i>
+    <span class="soul-square-search-icon">图标</span>
     <input class="soul-square-search-input" type="text" placeholder="搜索">
   </div>
 </template>
@@ -48,14 +48,14 @@ export default {
   height: 0.65rem;
   line-height: 0.65rem;
   text-align: center;
-  background-color: #fff;
+  background-color: blue;
   border-top-left-radius: 0.1rem;
   border-bottom-left-radius: 0.1rem;
 }
 .soul-square-search-input {
   width: 90%;
   height: 0.65rem;
-  background-color: #fff;
+  background-color: blue;
   border-top-right-radius: 0.1rem;
   border-bottom-right-radius: 0.1rem;
 }
