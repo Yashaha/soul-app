@@ -34,7 +34,7 @@ export default {
 
 <style>
 .soul-square-search {
-  background-color: var(--soul-background-color-search, #F6F6F6);
+  background-color: var(--background-color-search, #F6F6F6);
   display: flex;
   height: 0.65rem;
   margin-top: 1rem;

@@ -15,21 +15,21 @@
       @contentIndexChange="handleContentIndexChange"
       @touchChange="handleTouchChange"
     >
-      <div style="height: 1000px" slot="follow">
+      <div slot="follow">
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
       </div>
-      <div style="height: 1000px" slot="recommend">
-        <soul-cell-item></soul-cell-item>
-        <soul-cell-item></soul-cell-item>
+      <div slot="recommend">
+        <soul-cell-item :options="cellItemOption1"></soul-cell-item>
+        <soul-cell-item :options="cellItemOption2"></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
       </div>
-      <div style="height: 1000px" slot="newest">
+      <div slot="newest">
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
@@ -56,7 +56,40 @@ export default {
   data () {
     return {
       contentIndex: 1,
-      moveClientY: 0 // content组件的Y轴滑动距离
+      moveClientY: 0, // content组件的Y轴滑动距离
+      cellItemOption1: {
+        icon: 0, // 头像，不同数字对应不同头像
+        nickName: '#来自艺术家星球',
+        timeStamp: '2分钟前',
+        imgs: {
+          url: [
+            './static/photo1.jpg',
+            './static/photo1.jpg',
+            './static/photo1.jpg'
+          ],
+          count: 3
+        },
+        word: `什么时候去台湾旅游`,
+        topic: ' ',
+        location: ' '
+      },
+      cellItemOption2: {
+        icon: 0, // 头像，不同数字对应不同头像
+        nickName: '#来自温润多面手星球',
+        timeStamp: '5分钟前',
+        imgs: {
+          url: [
+            './static/photo1.jpg',
+            './static/photo1.jpg',
+            './static/photo1.jpg',
+            './static/photo1.jpg'
+          ],
+          count: 4
+        },
+        word: `我开始美丽的际遇 你来自东或西 都没有太大的关系 都听你 因为始终和你前进 回忆并肩旅行 我愿意陪着你去东和西`,
+        topic: '#吃鸡，落地成盒',
+        location: '伊拉克'
+      }
     }
   },
   methods: {

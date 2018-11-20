@@ -41,12 +41,12 @@ export default {
   right: 0;
   display: flex;
   height: 1rem;
-  background-color: var(--soul-background-color, #fff);
+  background-color: var(--background-color, #fff);
   box-shadow:
   0rem
   -0.05rem
-  var(--soul-box-shadow-blur, 0.35rem)
-  var(--soul-box-shadow-color, #D6D6D6);
+  var(--box-shadow-blur, 0.35rem)
+  var(--box-shadow-color, #D6D6D6);
   z-index: var(--nav, 1);
 }
 nav dl {
@@ -60,7 +60,7 @@ nav dt {
   height: 0.7rem;
 }
 nav dd {
-  color: var(--soul-font-disabled-color, #A6A6A6);
+  color: var(--font-color-disabled, #A6A6A6);
   line-height: 0.2rem;
   font-size: 0.2rem;
 }

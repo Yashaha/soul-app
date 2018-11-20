@@ -79,7 +79,7 @@ export default {
   top: 0;
   right: 0;
   left: 0;
-  color: var(--soul-font-disabled-color, #A6A6A6);
+  color: var(--font-color-disabled, #A6A6A6);
   z-index: var(--content, 0);
 }
 .soul-square-header-hide {
@@ -91,8 +91,9 @@ export default {
 }
 .soul-square-header-center span {
   width: 0.95rem;
+  text-align: center;
 }
 .soul-square-header-enabled {
-  color: var(--soul-font-enabled-color, #000);
+  color: var(--font-color-enabled, #000);
 }
 </style>

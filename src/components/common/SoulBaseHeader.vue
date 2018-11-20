@@ -40,11 +40,11 @@ export default {
   box-shadow:
   0rem
   0.05rem
-  var(--soul-box-shadow-blur, 0.35rem)
-  var(--soul-box-shadow-color, #D6D6D6);
+  var(--box-shadow-blur, 0.35rem)
+  var(--box-shadow-color, #D6D6D6);
   height: 1rem;
   transition: 0.5s;
-  background-color: var(--soul-background-color, #fff);
+  background-color: var(--background-color, #fff);
   z-index: var(--header, 2);
 }
 .soul-header-fixed {
@@ -58,7 +58,7 @@ export default {
 
 }
 .soul-header-center {
-  font-size: 0.32rem;
+  font-size: var(--font-size-header-center, 0.32rem);
 }
 .soul-header-right {
 

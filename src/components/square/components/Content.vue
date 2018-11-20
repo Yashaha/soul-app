@@ -28,6 +28,7 @@ export default {
       timerTouchMove: null, // 节流器
       contentIndex: 1, // 当前swiper的index值
       swiperOption: {
+        resistanceRatio: 0, // swiper到达边缘不能继续滑动
         on: {
           // 获取当前swiper的index值
           slideChangeTransitionStart: function () {
@@ -82,6 +83,7 @@ export default {
 <style>
 .soul-square-content {
   position: relative;
+  margin-bottom: 1rem;
   transition: 0.5s;
   z-index: var(--content);
 }
