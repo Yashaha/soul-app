@@ -1,8 +1,8 @@
 <!--
-options:
+itemData:
 nickName: 昵称
 timeStamp: 时间戳
-imgs: 图片链接
+imgs: 数组，图片链接
 word: 文字
 topic: 话题
 location: 定位
@@ -15,46 +15,46 @@ location: 定位
         <img src="@/assets/images/headicon/0.png">
       </div>
       <div class="soul-cell-item-header-detail">
-        <h1>{{options.nickName ? options.nickName : '昵称'}}</h1>
-        <h2>{{options.timeStamp ? options.timeStamp : '时间戳'}}</h2>
+        <h1>{{itemData.nickName ? itemData.nickName : '昵称'}}</h1>
+        <h2>{{itemData.timeStamp ? itemData.timeStamp : '时间戳'}}</h2>
       </div>
     </div>
 
     <!-- 内容：图片+文字+话题+定位 -->
     <div class="soul-cell-item-content">
       <div class="soul-cell-item-content-image">
-        <template v-if="options.imgs"> <!-- 判断是否有图片 -->
-            <template v-for="(url, index) in options.imgs.url">
+        <template v-if="itemData.imgs.count != 0"> <!-- 判断是否有图片 -->
+            <template v-for="(url, index) in itemData.imgs.url">
               <img
                 :src="url"
-                preview="0"
+                :preview="itemData.key"
                 :key="index"
                 :class="{
                   // 图片为4张就变成4宫格
-                  'soul-cell-item-content-image-count-default': (options.imgs.count < 4),
-                  'soul-cell-item-content-image-count-full': (options.imgs.count == 4)
+                  'soul-cell-item-content-image-count-default': (itemData.imgs.count < 4),
+                  'soul-cell-item-content-image-count-full': (itemData.imgs.count == 4)
                 }"
               >
             </template>
         </template>
-        <template v-else>
-          图片
-        </template>
       </div>
       <div class="soul-cell-item-content-word">
-        {{options.word ? options.word : '文字'}}
+        {{itemData.word ? itemData.word : '文字'}}
       </div>
       <div class="soul-cell-item-content-topic">
-        {{options.topic ? options.topic : '#话题'}}
+        {{itemData.topic ? itemData.topic : '#话题'}}
       </div>
       <div class="soul-cell-item-content-location">
-        {{options.location ? options.location : '定位'}}
+        {{itemData.location ? itemData.location : '定位'}}
       </div>
     </div>
 
     <!-- 尾部：收藏+点赞+评论+转发 -->
     <div class="soul-cell-item-footer">
-      收藏 点赞 评论 转发
+      <span style="width: 33%;">收藏</span>
+      <span style="width: 22%">点赞</span>
+      <span style="width: 22%">评论</span>
+      <span style="width: 22%">转发</span>
     </div>
 
     <!-- 分割线：灰色 -->
@@ -66,11 +66,17 @@ location: 定位
 export default {
   name: 'SoulCellItem',
   props: {
-    options: {
+    itemData: {
       type: [Object],
       default: () => {
-        return {}
-      }
+        return {
+          imgs: {
+            url: [],
+            count: 0
+          }
+        }
+      },
+      required: false
     }
   }
 }
@@ -103,12 +109,12 @@ export default {
 }
 .soul-cell-item-header-detail h1{
   padding-left: 0.2rem;
-  font-size: var(--font-size-square-nickname, 0.26rem);
+  font-size: var(--font-size-square-nickname, 0.28rem);
   color: var(--font-color-square-nickname, #26D4D0);
 }
 .soul-cell-item-header-detail h2{
   padding-left: 0.2rem;
-  font-size: var(--font-size-square-timestamp, 0.24rem);
+  font-size: var(--font-size-square-timestamp, 0.26rem);
   color: var(--font-color-disabled, #A6A6A6);
 }
 
@@ -136,7 +142,8 @@ export default {
 }
 .soul-cell-item-content-word {
   padding-right: 0.6rem;
-  line-height: var(--font-line-height-square-content, 0.4rem);
+  font-size: var(--font-size-square-word, 0.3rem);
+  line-height: var(--font-line-height-square-content, 0.6rem);
 }
 .soul-cell-item-content-topic {
   line-height: 0.8rem;

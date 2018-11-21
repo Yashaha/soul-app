@@ -18,7 +18,8 @@
   /*字体大小、距离、行高*/
   --box-shadow-blur: 0.35rem; /* header和nav模糊距离 */
   --font-size-header-center: 0.32rem; /* header栏中部字体大小，左右两侧为默认的0.28rem */
-  --font-size-square-nickname: 0.26rem; /* 广场瞬间的昵称 */
-  --font-size-square-timestamp: 0.24rem; /* 广场瞬间的时间戳 */
-  --font-line-height-square-content: 0.4rem; /* 广场瞬间内容的行高 */
+  --font-size-square-nickname: 0.28rem; /* 广场瞬间的昵称 */
+  --font-size-square-timestamp: 0.26rem; /* 广场瞬间的时间戳 */
+  --font-size-square-word: 0.3rem; /* 广场瞬间的文字大小 */
+  --font-line-height-square-content: 0.6rem; /* 广场瞬间的文字行高 */
 }
