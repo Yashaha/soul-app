@@ -1,4 +1,7 @@
-<!-- 该组件在SoulBaseHeader基础上增加了自动隐藏功能 -->
+<!-- 该组件在SoulBaseHeader基础上增加了：
+  1.自动隐藏功能
+  2.三个slider切换
+ -->
 <template>
   <!-- 头部 -->
   <soul-base-header
@@ -28,15 +31,20 @@ export default {
     SoulBaseHeader
   },
   props: {
-    // swiper的index值，用于判断是否加粗字体
+    // swiper的index值，用于判断是否使字体变成黑色
     contentIndex: {
       type: [Number],
       default: 1
     },
-    // 检测触碰滑动距离，小于0隐藏；大于0出现
-    moveClientY: {
-      type: [Number],
-      default: 0
+    // 检测滑动距离，小于0出现；大于0隐藏
+    movingEvent: {
+      type: [Object],
+      default: () => {
+        return {
+          direction: 0, // 滑动方向，-1为下滑，1为上滑
+          topY: 0 // content组件顶部滑动距离
+        }
+      }
     }
   },
   data () {
@@ -62,9 +70,14 @@ export default {
     } // 判断'最新'是否选中
   },
   watch: {
-    // 不要用箭头函数，否则不能操作data
-    moveClientY: function () {
-      this.isHide = (this.moveClientY < 0)
+    // 不要用箭头函数，否则不能操作data，对象要使用深度监听
+    movingEvent: {
+      handler: function (newValue) {
+        if (newValue.topY < -50) {
+          this.isHide = (newValue.direction > 0)
+        }
+      },
+      deep: true
     },
     contentIndex: function () {
       this.isHide = false // 切换栏目的时候也要显示header

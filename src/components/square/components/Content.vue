@@ -1,9 +1,7 @@
 <template>
   <div
     class="soul-square-content"
-    @touchstart="handleTouchStart"
     @touchmove="handleTouchMove"
-    @touchend="handleTouchEnd"
   >
     <swiper
       :options="swiperOption"
@@ -23,14 +21,15 @@ export default {
   data () {
     const that = this
     return {
-      preClientY: 0, // 上次触碰的Y值
-      currentClientY: 0, // 当前触碰的Y值
-      moveClientY: 0, // Y轴移动的距离
       timerTouchMove: null, // 节流器
       contentIndex: 1, // 当前swiper的index值
       bScrollFollow: '', // Bscroll不直接使用let定义，否则浏览器会出现定义了没使用的警告
       bScrollRecommend: '',
       bScrollNewest: '',
+      movingEvent: {
+        direction: 0, // 滑动方向，-1为下滑，1为上滑
+        topY: 0 // content组件顶部滑动距离
+      },
       styleObject: {
         overflow: 'scroll',
         height: (window.innerHeight - 50) + 'px'
@@ -61,14 +60,26 @@ export default {
   },
   mounted () {
     this.swiper.slideTo(1) // 切换到‘推荐’页面
-    this.bScrollFollow = new BScroll('.swiper-follow', {click: true, tap: true})
-    this.bScrollRecommend = new BScroll('.swiper-recommend', {click: true, tap: true})
-    this.bScrollNewest = new BScroll('.swiper-newest', {click: true, tap: true})
+    // 绑定Better-Scroll，必须设置了probeType才能监测scroll事件
+    this.bScrollFollow = new BScroll('.swiper-follow', {click: true, tap: true, probeType: 2})
+    this.bScrollRecommend = new BScroll('.swiper-recommend', {click: true, tap: true, probeType: 2})
+    this.bScrollNewest = new BScroll('.swiper-newest', {click: true, tap: true, probeType: 2})
+
+    // 给每个swiper绑定scroll事件
+    this.bScrollFollow.on('scroll', () => {
+      this.movingEvent.direction = this.bScrollFollow.movingDirectionY
+      this.movingEvent.topY = this.bScrollFollow.y
+    })
+    this.bScrollRecommend.on('scroll', () => {
+      this.movingEvent.direction = this.bScrollRecommend.movingDirectionY
+      this.movingEvent.topY = this.bScrollRecommend.y
+    })
+    this.bScrollNewest.on('scroll', () => {
+      this.movingEvent.direction = this.bScrollNewest.movingDirectionY
+      this.movingEvent.topY = this.bScrollNewest.y
+    })
   },
   methods: {
-    handleTouchStart (e) {
-      this.preClientY = e.touches[0].clientY
-    },
     handleTouchMove (e) {
       // 函数节流，提高性能
       if (this.timerTouchMove) {
@@ -76,17 +87,8 @@ export default {
       }
       // 检测触碰滑动距离，用于隐藏header和修改content的margin-top值
       this.timerTouchMove = setTimeout(() => {
-        this.currentClientY = e.touches[0].clientY // 当前触碰的Y值
-        this.moveClientY = this.currentClientY - this.preClientY // 更新Y轴移动距离
-        this.preClientY = this.currentClientY // 下次执行的时候，preClientY变成当前的currentClientY
-        this.$emit('touchChange', this.moveClientY) // 向父组件传递touchChange事件，携带moveClientY的值
+        this.$emit('touchChange', this.movingEvent) // 向父组件传递touchChange事件，携带movingEvent的值
       }, 16)
-    },
-    handleTouchEnd (e) {
-      // 防止有未完成的timer继续执行
-      if (this.timerTouchMove) {
-        clearTimeout(this.timerTouchMove)
-      }
     }
   }
 }
@@ -95,7 +97,6 @@ export default {
 <style>
 .soul-square-content {
   position: relative;
-  margin-bottom: 1rem;
   transition: 0.5s;
   z-index: var(--content);
 }

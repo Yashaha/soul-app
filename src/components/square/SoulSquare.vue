@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <soul-square-header
       :contentIndex="this.contentIndex"
-      :moveClientY="this.moveClientY"
+      :movingEvent="this.movingEvent"
     >
     </soul-square-header>
 
@@ -14,7 +14,7 @@
     >
       <div slot="follow">
         <!-- 搜索框 -->
-        <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
+        <soul-square-search></soul-square-search>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
@@ -23,7 +23,7 @@
       </div>
       <div slot="recommend">
         <!-- 搜索框 -->
-        <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
+        <soul-square-search></soul-square-search>
         <soul-cell-item :options="cellItemOption1"></soul-cell-item>
         <soul-cell-item :options="cellItemOption2"></soul-cell-item>
         <soul-cell-item></soul-cell-item>
@@ -32,7 +32,7 @@
       </div>
       <div slot="newest">
         <!-- 搜索框 -->
-        <soul-square-search :moveClientY="this.moveClientY"></soul-square-search>
+        <soul-square-search></soul-square-search>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
         <soul-cell-item></soul-cell-item>
@@ -59,7 +59,10 @@ export default {
   data () {
     return {
       contentIndex: 1,
-      moveClientY: 0, // content组件的Y轴滑动距离
+      movingEvent: {
+        direction: 0, // 滑动方向，-1为下滑，1为上滑
+        topY: 0 // content组件顶部滑动距离
+      }, // content滑动事件
       cellItemOption1: {
         icon: 0, // 头像，不同数字对应不同头像
         nickName: '#来自艺术家星球',
@@ -100,9 +103,9 @@ export default {
     handleContentIndexChange (index) {
       this.contentIndex = index
     },
-    // 滑动内容栏时触发此函数，m为Y轴滑动距离，负数为向上滑动，正数为向下滑动
+    // 滑动内容栏时触发此函数，m为Y轴滑动方向，负数为向下滑动，正数为向上滑动
     handleTouchChange (m) {
-      this.moveClientY = m
+      this.movingEvent = m
     }
   }
 }

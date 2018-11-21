@@ -1,34 +1,18 @@
 <template>
-  <div
-      class="soul-square-search"
-      :class="{'soul-square-search-hide': isHide}"
-  >
-    <span class="soul-square-search-icon">图标</span>
-    <input class="soul-square-search-input" type="text" placeholder="搜索">
+  <div>
+    <div style="height: 1rem;"><!-- 把搜索框顶出头部高度 --></div>
+    <div class="soul-square-search">
+      <span class="soul-square-search-icon">图标</span>
+      <div class="soul-square-search-input">
+        <input class="soul-square-search-input" type="text" placeholder="搜索">
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SoulSquareSearch',
-  props: {
-    // 检测触碰滑动距离，小于0隐藏；大于0出现
-    moveClientY: {
-      type: [Number],
-      default: 0
-    }
-  },
-  data () {
-    return {
-      isHide: false // 判断search是否收起
-    }
-  },
-  watch: {
-    // 不要用箭头函数，否则不能操作data
-    moveClientY: function () {
-      this.isHide = (this.moveClientY < 0)
-    }
-  }
+  name: 'SoulSquareSearch'
 }
 </script>
 
@@ -37,8 +21,6 @@ export default {
   background-color: var(--background-color-search, #F6F6F6);
   display: flex;
   height: 0.65rem;
-  margin-top: 1rem;
-  margin-bottom: 0.04rem;
   padding: 0.1rem 0.2rem 0.1rem 0.2rem;
   transition: 0.5s;
   z-index: var(--content, 0);
@@ -48,18 +30,13 @@ export default {
   height: 0.65rem;
   line-height: 0.65rem;
   text-align: center;
-  background-color: blue;
-  border-top-left-radius: 0.1rem;
-  border-bottom-left-radius: 0.1rem;
+  background-color: #fff;
+  border-radius: 0.1rem 0 0 0.1rem;
 }
 .soul-square-search-input {
   width: 90%;
   height: 0.65rem;
-  background-color: blue;
-  border-top-right-radius: 0.1rem;
-  border-bottom-right-radius: 0.1rem;
-}
-.soul-square-search-hide {
-  margin-top: 0;
+  background-color: #fff;
+  border-radius: 0 0.1rem 0.1rem 0;
 }
 </style>
