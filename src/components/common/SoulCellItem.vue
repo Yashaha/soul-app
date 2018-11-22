@@ -51,10 +51,44 @@ location: 定位
 
     <!-- 尾部：收藏+点赞+评论+转发 -->
     <div class="soul-cell-item-footer">
-      <span style="width: 33%;">收藏</span>
-      <span style="width: 22%">点赞</span>
-      <span style="width: 22%">评论</span>
-      <span style="width: 22%">转发</span>
+      <div style="width: 33%">
+        <img
+          @click="handleClickCollectToggle"
+          style="width: 0.45rem; height: 0.45rem;"
+          :src="iconCollectUrl"
+        >
+      </div>
+
+      <div style="width: 22%">
+        <img @click="handleClickHeartToggle"
+          style="width: 0.5rem; height: 0.5rem;"
+          :src="iconHeartUrl"
+        >
+        <!-- 红心数量为0则设置为'' -->
+        <span>
+          {{iconHeartCount === 0 ? '' : iconHeartCount}}
+        </span>
+      </div>
+
+      <div style="width: 22%">
+        <img
+          style="width: 0.4rem; height: 0.4rem;"
+          :src="iconCommentUrl"
+        >
+        <span>
+          {{iconCommentCount === 0 ? '' : iconCommentCount}}
+        </span>
+      </div>
+
+      <div style="width: 22%">
+        <img
+          style="width: 0.42rem; height: 0.42rem;"
+          :src="iconForwardUrl"
+        >
+        <span>
+          {{iconForwardCount === 0 ? '' : iconForwardCount}}
+        </span>
+      </div>
     </div>
 
     <!-- 分割线：灰色 -->
@@ -77,6 +111,37 @@ export default {
         }
       },
       required: false
+    }
+  },
+  data () {
+    return {
+      iconCollectUrl: require('../../assets/images/icon/icon_collect_gray.png'),
+      iconHeartUrl: require('../../assets/images/icon/icon_heart_gray.png'),
+      iconCommentUrl: require('../../assets/images/icon/icon_comment.png'),
+      iconForwardUrl: require('../../assets/images/icon/icon_forward.png'),
+      iconHeartCount: this.itemData.iconHeartCount,
+      iconCommentCount: this.itemData.iconCommentCount,
+      iconForwardCount: this.itemData.iconForwardCount
+    }
+  },
+  methods: {
+    // 点收藏与取消收藏
+    handleClickCollectToggle () {
+      if (this.iconCollectUrl === require('../../assets/images/icon/icon_collect_gray.png')) {
+        this.iconCollectUrl = require('../../assets/images/icon/icon_collect_green.png')
+      } else {
+        this.iconCollectUrl = require('../../assets/images/icon/icon_collect_gray.png')
+      }
+    },
+    // 点红心与取消红心
+    handleClickHeartToggle () {
+      if (this.iconHeartUrl === require('../../assets/images/icon/icon_heart_gray.png')) {
+        this.iconHeartUrl = require('../../assets/images/icon/icon_heart_red.png')
+        this.iconHeartCount++
+      } else {
+        this.iconHeartUrl = require('../../assets/images/icon/icon_heart_gray.png')
+        this.iconHeartCount--
+      }
     }
   }
 }
@@ -157,7 +222,9 @@ export default {
 /* 尾部 */
 .soul-cell-item-footer {
   display: flex;
-  padding: 0.15rem 0 0.15rem 1.3rem;
+  align-items: center;
+  color: var(--font-color-disabled, #A6A6A6);
+  padding: 0.3rem 0 0.45rem 1.3rem;
 }
 .soul-cell-item-divide {
   width: 100%;

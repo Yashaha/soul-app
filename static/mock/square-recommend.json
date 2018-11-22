@@ -10,6 +10,9 @@
     "word": "什么时候去台湾旅游",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 5,
+    "iconCommentCount": 20,
+    "iconForwardCount": 2,
     "key": "jdjsfj"
   },
   "cellItemOption2": {
@@ -26,6 +29,9 @@
     "word": "我开始美丽的际遇 你来自东或西 都没有太大的关系 都听你 因为始终和你前进 回忆并肩旅行 我愿意陪着你去东和西",
     "topic": "#吃鸡",
     "location": "广州",
+    "iconHeartCount": 56,
+    "iconCommentCount": 87,
+    "iconForwardCount": 13,
     "key": "fhgff"
   },
   "cellItemOption3": {
@@ -43,6 +49,9 @@
     "word": "我希望我们再次见面开口第一句是“我终于再一次遇到了你”这次相遇我们永远不要再一次分开！",
     "topic": " ",
     "location": "北京",
+    "iconHeartCount": 9,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "jkuiyr"
   },
   "cellItemOption4": {
@@ -61,6 +70,9 @@
     "word": "就让这时光别停留 就让这姑娘别回头 就让这昨夜醉酒的人呐 别再泪流",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 0,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "dsadeg"
   },
   "cellItemOption5": {
@@ -76,6 +88,9 @@
     "word": "流着泪说分手 我不愿让你走 嘴边还有残留的爱没有问候 你却说走就走 狠心让爱这样到尽头",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 3,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "hkfhffg"
   },
   "cellItemOption6": {
@@ -89,6 +104,9 @@
     "word": "小萝莉嘤嘤嘤",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 0,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "fddfgre"
   },
   "cellItemOption7": {
@@ -102,6 +120,9 @@
     "word": "舍友呼噜打得贼响，怎么破啊！",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 5,
+    "iconCommentCount": 36,
+    "iconForwardCount": 0,
     "key": "fddfgdre"
   }
 }

@@ -12,6 +12,9 @@
     "word": "又长青春痘了贼烦",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 1,
+    "iconCommentCount": 1,
+    "iconForwardCount": 1,
     "key": "jdjsf1j"
   },
   "cellItemOption2": {
@@ -25,6 +28,9 @@
     "word": "我羡慕那些有故事的人......",
     "topic": "#1000个失眠故事",
     "location": " ",
+    "iconHeartCount": 0,
+    "iconCommentCount": 10,
+    "iconForwardCount": 0,
     "key": "fhg1ff"
   },
   "cellItemOption3": {
@@ -42,6 +48,9 @@
     "word": "假如生活欺骗了你",
     "topic": " ",
     "location": "北京",
+    "iconHeartCount": 0,
+    "iconCommentCount": 4,
+    "iconForwardCount": 0,
     "key": "jkui1yr"
   },
   "cellItemOption4": {
@@ -60,6 +69,9 @@
     "word": "就让这时光别停留 就让这姑娘别回头 就让这昨夜醉酒的人呐 别再泪流",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 7,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "dsa1deg"
   },
   "cellItemOption5": {
@@ -75,6 +87,9 @@
     "word": "流着泪说分手 我不愿让你走 嘴边还有残留的爱没有问候 你却说走就走 狠心让爱这样到尽头",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 14,
+    "iconCommentCount": 27,
+    "iconForwardCount": 0,
     "key": "hk1fhffg"
   },
   "cellItemOption6": {
@@ -88,6 +103,9 @@
     "word": "小萝莉嘤嘤嘤",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 0,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "fddf1gre"
   },
   "cellItemOption7": {
@@ -101,6 +119,9 @@
     "word": "舍友呼噜打得贼响，怎么破啊！",
     "topic": " ",
     "location": " ",
+    "iconHeartCount": 0,
+    "iconCommentCount": 0,
+    "iconForwardCount": 0,
     "key": "fddfg1dre"
   }
 }
