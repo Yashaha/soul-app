@@ -11,9 +11,24 @@
     <template slot="left">照相机</template>
     <template slot="center">
       <div class="soul-square-header-center">
-        <span :class="{'soul-square-header-enabled': isFollowEnabled}">关注</span>
-        <span :class="{'soul-square-header-enabled': isRecommendEnabled}">推荐</span>
-        <span :class="{'soul-square-header-enabled': isNewestEnabled}">最新</span>
+        <span
+          @click="handleClickFollow"
+          :class="{'soul-square-header-enabled': isFollowEnabled}"
+        >
+          关注
+        </span>
+        <span
+          @click="handleClickRecommend"
+          :class="{'soul-square-header-enabled': isRecommendEnabled}"
+        >
+          推荐
+        </span>
+        <span
+          @click="handleClickNewest"
+          :class="{'soul-square-header-enabled': isNewestEnabled}"
+        >
+          最新
+        </span>
       </div>
     </template>
     <template slot="right">随机音</template>
@@ -24,28 +39,12 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import SoulBaseHeader from '@/components/common/SoulBaseHeader'
 export default {
   name: 'SoulSquareHeader',
   components: {
     SoulBaseHeader
-  },
-  props: {
-    // swiper的index值，用于判断是否使字体变成黑色
-    contentIndex: {
-      type: [Number],
-      default: 1
-    },
-    // 检测滑动距离，小于0出现；大于0隐藏
-    movingEvent: {
-      type: [Object],
-      default: () => {
-        return {
-          direction: 0, // 滑动方向，-1为下滑，1为上滑
-          topY: 0 // content组件顶部滑动距离
-        }
-      }
-    }
   },
   data () {
     return {
@@ -55,23 +54,24 @@ export default {
   computed: {
     isFollowEnabled: {
       get: function () {
-        return (this.contentIndex === 0)
+        return (this.soulSquare.contentIndex === 0)
       }
     }, // 判断'关注'是否选中
     isRecommendEnabled: {
       get: function () {
-        return (this.contentIndex === 1)
+        return (this.soulSquare.contentIndex === 1)
       }
     }, // 判断'推荐'是否选中
     isNewestEnabled: {
       get: function () {
-        return (this.contentIndex === 2)
+        return (this.soulSquare.contentIndex === 2)
       }
-    } // 判断'最新'是否选中
+    }, // 判断'最新'是否选中
+    ...mapState(['soulSquare'])
   },
   watch: {
     // 不要用箭头函数，否则不能操作data，对象要使用深度监听
-    movingEvent: {
+    'soulSquare.movingEvent': {
       handler: function (newValue) {
         if (newValue.topY < -50) {
           this.isHide = (newValue.direction > 0)
@@ -79,9 +79,24 @@ export default {
       },
       deep: true
     },
-    contentIndex: function () {
-      this.isHide = false // 切换栏目的时候也要显示header
+    'soulSquare.contentIndex': function (newValue) {
+      this.isHide = false
     }
+  },
+  methods: {
+    handleClickFollow () {
+      this.changeSoulSquareContentIndex(0) // 切换到关注页面
+    },
+    handleClickRecommend () {
+      this.changeSoulSquareContentIndex(1) // 切换到推荐页面
+    },
+    handleClickNewest () {
+      this.changeSoulSquareContentIndex(2) // 切换到最新页面
+    },
+    ...mapMutations([
+      'changeSoulSquare',
+      'changeSoulSquareContentIndex'
+    ])
   }
 }
 </script>

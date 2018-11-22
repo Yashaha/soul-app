@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="soul-square-content"
-    @touchmove="handleTouchMove"
-  >
+  <div class="soul-square-content">
     <swiper
       :options="swiperOption"
       ref="soulSquareContentSwiper"
@@ -49,6 +46,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import BScroll from 'better-scroll'
 import SoulSquareSearch from './Search'
 import SoulCellItem from '../../common/SoulCellItem'
@@ -63,18 +61,12 @@ export default {
     const that = this
     return {
       timerTouchMove: null, // 节流器
-      contentIndex: 1, // 当前swiper的index值
       bScrollFollow: '', // Bscroll不直接使用let定义，否则浏览器会出现定义了没使用的警告
       bScrollRecommend: '',
       bScrollNewest: '',
       followData: {},
       recommendData: {},
       newestData: {},
-
-      movingEvent: {
-        direction: 0, // 滑动方向，-1为下滑，1为上滑
-        topY: 0 // content组件顶部滑动距离
-      },
       styleObject: {
         overflow: 'scroll',
         height: (window.innerHeight - 50) + 'px'
@@ -84,7 +76,7 @@ export default {
         on: {
           // 获取当前swiper的index值
           slideChangeTransitionStart: function () {
-            that.contentIndex = this.activeIndex
+            that.changeSoulSquareContentIndex(this.activeIndex)
           }
         }
       } // Swiper设置
@@ -94,13 +86,12 @@ export default {
     // 使用swiper必须要写的
     swiper () {
       return this.$refs.soulSquareContentSwiper.swiper
-    }
+    },
+    ...mapState(['soulSquare'])
   },
   watch: {
-    // 不要用箭头函数，否则不能操作data
-    // swiper的index值发生改变，触发事件，并返回新的index值
-    contentIndex: function (newValue) {
-      this.$emit('contentIndexChange', newValue)
+    'soulSquare.contentIndex': function (newValue) {
+      this.swiper.slideTo(newValue) // 切换页面
     }
   },
   methods: {
@@ -135,16 +126,18 @@ export default {
 
       // 给每个swiper绑定scroll事件
       this.bScrollFollow.on('scroll', () => {
-        this.movingEvent.direction = this.bScrollFollow.movingDirectionY
-        this.movingEvent.topY = this.bScrollFollow.y
+        this.changeSoulSquareMovingEventDirection(this.bScrollFollow.movingDirectionY)
+        this.changeSoulSquareMovingEventTopY(this.bScrollFollow.y)
       })
+
       this.bScrollRecommend.on('scroll', () => {
-        this.movingEvent.direction = this.bScrollRecommend.movingDirectionY
-        this.movingEvent.topY = this.bScrollRecommend.y
+        this.changeSoulSquareMovingEventDirection(this.bScrollRecommend.movingDirectionY)
+        this.changeSoulSquareMovingEventTopY(this.bScrollRecommend.y)
       })
+
       this.bScrollNewest.on('scroll', () => {
-        this.movingEvent.direction = this.bScrollNewest.movingDirectionY
-        this.movingEvent.topY = this.bScrollNewest.y
+        this.changeSoulSquareMovingEventDirection(this.bScrollNewest.movingDirectionY)
+        this.changeSoulSquareMovingEventTopY(this.bScrollNewest.y)
       })
 
       // 每次滚动前都refresh一次DOM结构
@@ -158,16 +151,12 @@ export default {
         this.bScrollNewest.refresh()
       })
     },
-    handleTouchMove (e) {
-      // 函数节流，提高性能
-      if (this.timerTouchMove) {
-        clearTimeout(this.timerTouchMove)
-      }
-      // 检测触碰滑动距离，用于隐藏header和修改content的margin-top值
-      this.timerTouchMove = setTimeout(() => {
-        this.$emit('touchChange', this.movingEvent) // 向父组件传递touchChange事件，携带movingEvent的值
-      }, 16)
-    }
+    ...mapMutations([
+      'changeSoulSquare',
+      'changeSoulSquareContentIndex',
+      'changeSoulSquareMovingEventDirection',
+      'changeSoulSquareMovingEventTopY'
+    ])
   },
   mounted () {
     this.swiper.slideTo(1) // 切换到‘推荐’页面

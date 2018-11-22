@@ -25,6 +25,7 @@ npm run build --report
   - vue
   - vue-cli
   - vue-router
+  - vuex
   - ESLint
 
 ## 4. 当前项目进度
@@ -44,3 +45,4 @@ npm run build --report
 4. [vue-photo-preview](https://github.com/826327700/vue-photo-preview)
 5. [better-scroll](https://github.com/ustbhuangyi/better-scroll)
 6. [axios](https://www.kancloud.cn/yunye/axios/234845)
+7. [vuex](https://vuex.vuejs.org/zh/installation.html)
