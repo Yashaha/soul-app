@@ -1,7 +1,11 @@
 <template>
   <div>
     <soul-chat-header></soul-chat-header>
-    <div style="height: 1rem;background: #999;"></div>
+    <div style="height: 1rem;background: #fff;"></div>
+    <soul-chat-message-item></soul-chat-message-item>
+    <soul-chat-message-item></soul-chat-message-item>
+    <soul-chat-message-item></soul-chat-message-item>
+    <soul-chat-message-item></soul-chat-message-item>
     <soul-chat-message-item></soul-chat-message-item>
     <soul-chat-message-item></soul-chat-message-item>
     <soul-chat-message-item></soul-chat-message-item>
