@@ -23,7 +23,7 @@
 export default {
   name: 'SoulBaseHeader',
   props: {
-    // 检测header栏是否固定在头部，只要组件属性写了fixed，就算不传值，props中的fixed值也会变成true。scrollhide同理
+    // 检测header栏是否固定在头部，只要组件属性写了fixed，就算不传值，props中的fixed值也会变成true
     fixed: {
       type: [Boolean],
       default: false
@@ -47,20 +47,30 @@ export default {
   background-color: var(--background-color, #fff);
   z-index: var(--header, 2);
 }
+.soul-header-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+}
+.soul-header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  font-size: var(--font-size-header-center, 0.32rem);
+}
+.soul-header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 25%;
+}
 .soul-header-fixed {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: var(--header);
-}
-.soul-header-left {
-
-}
-.soul-header-center {
-  font-size: var(--font-size-header-center, 0.32rem);
-}
-.soul-header-right {
-
 }
 </style>

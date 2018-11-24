@@ -51,17 +51,22 @@ location: 定位
 
     <!-- 尾部：收藏+点赞+评论+转发 -->
     <div class="soul-cell-item-footer">
-      <div style="width: 33%">
+      <div
+        @click="handleClickCollectToggle"
+        style="width: 33%"
+      >
         <img
-          @click="handleClickCollectToggle"
-          style="width: 0.45rem; height: 0.45rem;"
+          style="width: 0.46rem; height: 0.46rem;"
           :src="iconCollectUrl"
         >
       </div>
 
-      <div style="width: 22%">
-        <img @click="handleClickHeartToggle"
-          style="width: 0.5rem; height: 0.5rem;"
+      <div
+        @click="handleClickHeartToggle"
+        style="width: 22%"
+      >
+        <img
+          style="width: 0.51rem; height: 0.51rem;"
           :src="iconHeartUrl"
         >
         <!-- 红心数量为0则设置为'' -->
@@ -72,7 +77,7 @@ location: 定位
 
       <div style="width: 22%">
         <img
-          style="width: 0.4rem; height: 0.4rem;"
+          style="width: 0.41rem; height: 0.41rem;"
           :src="iconCommentUrl"
         >
         <span>
@@ -82,7 +87,7 @@ location: 定位
 
       <div style="width: 22%">
         <img
-          style="width: 0.42rem; height: 0.42rem;"
+          style="width: 0.43rem; height: 0.43rem;"
           :src="iconForwardUrl"
         >
         <span>
@@ -224,7 +229,16 @@ export default {
   display: flex;
   align-items: center;
   color: var(--font-color-disabled, #A6A6A6);
-  padding: 0.3rem 0 0.45rem 1.3rem;
+  height: 1.2rem;
+  padding-left: 1.3rem;
+}
+.soul-cell-item-footer div {
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.soul-cell-item-footer span {
+  padding-left: 0.1rem;
 }
 .soul-cell-item-divide {
   width: 100%;

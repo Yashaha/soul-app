@@ -60,10 +60,6 @@ export default {
   data () {
     const that = this
     return {
-      timerTouchMove: null, // 节流器
-      bScrollFollow: '', // Bscroll不直接使用let定义，否则浏览器会出现定义了没使用的警告
-      bScrollRecommend: '',
-      bScrollNewest: '',
       followData: {},
       recommendData: {},
       newestData: {},
@@ -139,17 +135,6 @@ export default {
         this.changeSoulSquareMovingEventDirection(this.bScrollNewest.movingDirectionY)
         this.changeSoulSquareMovingEventTopY(this.bScrollNewest.y)
       })
-
-      // 每次滚动前都refresh一次DOM结构
-      this.bScrollFollow.on('beforeScrollStart', () => {
-        this.bScrollFollow.refresh()
-      })
-      this.bScrollRecommend.on('beforeScrollStart', () => {
-        this.bScrollRecommend.refresh()
-      })
-      this.bScrollNewest.on('beforeScrollStart', () => {
-        this.bScrollNewest.refresh()
-      })
     },
     ...mapMutations([
       'changeSoulSquare',
@@ -159,7 +144,7 @@ export default {
     ])
   },
   mounted () {
-    this.swiper.slideTo(1) // 切换到‘推荐’页面
+    this.swiper.slideTo(0) // 切换到‘推荐’页面
     this.getSquareRecommendInfo() // 获取推荐页面信息
     this.getSquareNewestInfo() // 获取最新页面信息
     this.initBScroll() // 初始化BScroll
