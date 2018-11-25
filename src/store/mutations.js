@@ -11,5 +11,8 @@ export default {
   },
   changeSoulSquareMovingEventTopY (state, topY) {
     state.soulSquare.movingEvent.topY = topY
+  },
+  changeSoulChatIsSpreadOperate (state, is) {
+    state.soulChat.isSpreadOperate_gobal = is
   }
 }
