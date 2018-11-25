@@ -1,6 +1,12 @@
 <template>
   <div class="message-item">
-    <div class="message-item-info" v-swiper>
+    <div
+      class="message-item-info"
+      :style="styleObject"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+    >
       <div class="message-item-info-headicon">头像</div>
       <div class="message-item-info-detail">昵称 soulmate 消息预览</div>
       <div class="message-item-info-date">日期</div>
@@ -14,37 +20,52 @@
 <script>
 export default {
   name: 'SoulChatMessageItem',
-  directives: { // 自定义事件用于消息框侧滑菜单
-    swiper: {
-      bind: function (el, binding) {
-        var touches, startTx, endTx, distanceX, startMarginLeft
-        el.addEventListener('touchstart', function (e) {
-          touches = e.touches[0]
-          startTx = touches.clientX
-          startMarginLeft = parseInt(el.style.marginLeft)
-        }, false)
-        el.addEventListener('touchmove', function (e) {
-          touches = e.changedTouches[0]
-          endTx = touches.clientX
-          distanceX = startTx - endTx
-          if (distanceX < 0) { // 右滑
-            el.style.transition = '0s'
-            el.style.marginLeft = startMarginLeft - distanceX + 'px'
-          } else { // 左滑
-            // e.preventDefault() // 似乎不阻止默认事件也没事
-            el.style.transition = '0s'
-            el.style.marginLeft = startMarginLeft - distanceX + 'px'
-          }
-        }, false)
-        el.addEventListener('touchend', function (e) {
-          if (parseInt(el.style.marginLeft) > -100) {
-            el.style.transition = '0.4s'
-            el.style.marginLeft = '0px'
-          } else {
-            el.style.transition = '0.4s'
-            el.style.marginLeft = '-225px'
-          }
-        }, false)
+  data () {
+    return {
+      transitionTime: 0,
+      marginLeft: 0,
+      touches: '',
+      startTx: '',
+      endTx: '',
+      distanceX: '',
+      startMarginLeft: 0
+    }
+  },
+  computed: {
+    styleObject: function () {
+      return {
+        transition: this.transitionTime + 's',
+        marginLeft: this.marginLeft + 'px'
+      }
+    }
+  },
+  methods: {
+    handleTouchStart (e) {
+      this.touches = e.touches[0]
+      this.startTx = this.touches.clientX
+      this.startMarginLeft = this.marginLeft
+    },
+    handleTouchMove (e) {
+      this.touches = e.changedTouches[0]
+      this.endTx = this.touches.clientX
+      this.distanceX = this.startTx - this.endTx
+      if (this.distanceX < 0) { // 右滑
+        e.preventDefault()
+        this.transitionTime = 0
+        this.marginLeft = this.startMarginLeft - this.distanceX
+      } else { // 左滑
+        e.preventDefault()
+        this.transitionTime = 0
+        this.marginLeft = this.startMarginLeft - this.distanceX
+      }
+    },
+    handleTouchEnd (e) {
+      if (this.marginLeft > -100) {
+        this.transitionTime = 0.4
+        this.marginLeft = 0
+      } else {
+        this.transitionTime = 0.4
+        this.marginLeft = -225
       }
     }
   }
@@ -57,6 +78,7 @@ export default {
   justify-content: flex-end; /* 不知为何加了这个属性就能阻止左右滑动出现空白了 */
   width: 100%;
   height: 1.5rem;
+  margin-left: 0;
   border-bottom: 1px solid #ccc;
 }
 .message-item-info {

@@ -64,7 +64,6 @@ export default {
       recommendData: {},
       newestData: {},
       styleObject: {
-        overflow: 'scroll',
         height: (window.innerHeight - 50) + 'px'
       }, // 给slide自适应高度，才不会滑动一个slide导致另一个slide也跟着滑动，50是底部导航栏的总高度
       swiperOption: {
@@ -144,7 +143,7 @@ export default {
     ])
   },
   mounted () {
-    this.swiper.slideTo(0) // 切换到‘推荐’页面
+    this.swiper.slideTo(1) // 切换到‘推荐’页面
     this.getSquareRecommendInfo() // 获取推荐页面信息
     this.getSquareNewestInfo() // 获取最新页面信息
     this.initBScroll() // 初始化BScroll
