@@ -134,6 +134,19 @@ export default {
         this.changeSoulSquareMovingEventDirection(this.bScrollNewest.movingDirectionY)
         this.changeSoulSquareMovingEventTopY(this.bScrollNewest.y)
       })
+
+      // 给每个swiper绑定scrollStart事件
+      this.bScrollFollow.on('scrollStart', () => {
+        this.bScrollFollow.refresh()
+      })
+
+      this.bScrollRecommend.on('scrollStart', () => {
+        this.bScrollRecommend.refresh()
+      })
+
+      this.bScrollNewest.on('scrollStart', () => {
+        this.bScrollNewest.refresh()
+      })
     },
     ...mapMutations([
       'changeSoulSquare',
@@ -154,6 +167,6 @@ export default {
 <style>
 .soul-square-content {
   position: relative;
-  z-index: var(--content);
+  z-index: var(--content, 0);
 }
 </style>

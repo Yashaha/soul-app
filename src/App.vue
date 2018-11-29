@@ -10,17 +10,22 @@
 
     <!-- 底部导航栏 -->
     <soul-nav></soul-nav>
+
+    <!-- 弹出Add -->
+    <soul-add></soul-add>
   </div>
 </template>
 
 <script>
 import SoulWelcome from './components/common/SoulWelcome'
 import SoulNav from './components/common/SoulNav'
+import SoulAdd from './components/add/SoulAdd'
 export default {
   name: 'App',
   components: {
     SoulWelcome,
-    SoulNav
+    SoulNav,
+    SoulAdd
   }
 }
 </script>

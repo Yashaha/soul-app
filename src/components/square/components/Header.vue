@@ -108,7 +108,7 @@ export default {
   right: 0;
   left: 0;
   color: var(--font-color-disabled, #A6A6A6);
-  z-index: var(--content, 0);
+  z-index: var(--header, 2);
 }
 .soul-square-header-hide {
   top: -1.02rem;

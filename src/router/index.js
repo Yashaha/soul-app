@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import SoulStar from '@/components/star/SoulStar'
 import SoulSquare from '@/components/square/SoulSquare'
-import SoulAdd from '@/components/add/SoulAdd'
 import SoulChat from '@/components/chat/SoulChat'
 import SoulSelf from '@/components/self/SoulSelf'
 
@@ -15,19 +14,14 @@ export default new Router({
       redirect: '/soulchat'
     },
     {
-      path: '/soulsquare',
-      name: 'SoulSquare',
-      component: SoulSquare
-    },
-    {
       path: '/soulstar',
       name: 'SoulStar',
       component: SoulStar
     },
     {
-      path: '/souladd',
-      name: 'SoulAdd',
-      component: SoulAdd
+      path: '/soulsquare',
+      name: 'SoulSquare',
+      component: SoulSquare
     },
     {
       path: '/soulchat',

@@ -1,4 +1,5 @@
 export default {
+  soulNavCurrent: 'soulSquare', // 导航栏选中哪个栏目,可以设置为soulStar,soulSquare,soulChat,soulSelf
   soulSquare: {
     contentIndex: 1, // 广场swiper的索引值，0为关注，1为推荐，2为最新
     movingEvent: {
@@ -8,5 +9,8 @@ export default {
   },
   soulChat: {
     isSpreadOperate_gobal: false // 是否有展开的侧滑菜单，只要有一个消息框展开了就设置为true
+  },
+  soulAdd: {
+    isShow: false // 判断显示
   }
 }

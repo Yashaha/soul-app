@@ -42,7 +42,7 @@ export default {
   height: 100%;
   background-color: #fff;
   transition: 0.5s;
-  z-index: var(--popout);
+  z-index: var(--mask, 4);
 }
 .soul-welcome-hide {
   opacity: 0;

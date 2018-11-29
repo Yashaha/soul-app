@@ -9,7 +9,7 @@
     <template slot="center">聊天</template>
     <template slot="right">
       <div>
-        <i>😂</i>
+        <i></i>
         关注
       </div>
     </template>

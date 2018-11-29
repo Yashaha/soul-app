@@ -1,4 +1,7 @@
 export default {
+  changeSoulNavCurrent (state, current) {
+    state.soulNavCurrent = current
+  },
   changeSoulSquare (state, soulSquare) {
     state.soulSquare.contentIndex = soulSquare.contentIndex
     state.soulSquare.movingEvent = soulSquare.movingEvent
@@ -11,6 +14,9 @@ export default {
   },
   changeSoulSquareMovingEventTopY (state, topY) {
     state.soulSquare.movingEvent.topY = topY
+  },
+  changeSoulAddIsShow (state, is) {
+    state.soulAdd.isShow = is
   },
   changeSoulChatIsSpreadOperate (state, is) {
     state.soulChat.isSpreadOperate_gobal = is
