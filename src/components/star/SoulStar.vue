@@ -1,10 +1,16 @@
 <template>
-  <div>星球</div>
+  <div>
+    <soul-star-box></soul-star-box>
+  </div>
 </template>
 
 <script>
+import SoulStarBox from './components/Box'
 export default {
-  name: 'SoulStar'
+  name: 'SoulStar',
+  components: {
+    SoulStarBox
+  }
 }
 </script>
 

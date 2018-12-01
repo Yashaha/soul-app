@@ -26,7 +26,7 @@
       <dl @click="handleClickAdd">
         <dt>
           <img
-            style="width: 1rem; height: 1rem;"
+            style="width: 0.9rem; height: 0.9rem;"
             src="@/assets/images/icon/icon_tabbar_release.png"
           >
         </dt>
