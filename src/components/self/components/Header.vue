@@ -51,7 +51,7 @@ export default {
   },
   watch: {
     'soulSelf.topY': function (newValue) {
-      if (newValue < 0 && newValue > -310) {
+      if (newValue <= 0 && newValue > -310) {
         this.titleOpacity = Math.abs(newValue / -310)
         this.titleY = 320 + newValue
         this.imgY = newValue * 0.4

@@ -120,19 +120,19 @@ export default {
       this.bScrollNewest = new BScroll('.swiper-newest', {click: true, tap: true, probeType: 2})
 
       // 给每个swiper绑定scroll事件
-      this.bScrollFollow.on('scroll', () => {
+      this.bScrollFollow.on('scroll', (pos) => {
         this.changeSoulSquareMovingEventDirection(this.bScrollFollow.movingDirectionY)
-        this.changeSoulSquareMovingEventTopY(this.bScrollFollow.y)
+        this.changeSoulSquareMovingEventTopY(pos.y)
       })
 
-      this.bScrollRecommend.on('scroll', () => {
+      this.bScrollRecommend.on('scroll', (pos) => {
         this.changeSoulSquareMovingEventDirection(this.bScrollRecommend.movingDirectionY)
-        this.changeSoulSquareMovingEventTopY(this.bScrollRecommend.y)
+        this.changeSoulSquareMovingEventTopY(pos.y)
       })
 
-      this.bScrollNewest.on('scroll', () => {
+      this.bScrollNewest.on('scroll', (pos) => {
         this.changeSoulSquareMovingEventDirection(this.bScrollNewest.movingDirectionY)
-        this.changeSoulSquareMovingEventTopY(this.bScrollNewest.y)
+        this.changeSoulSquareMovingEventTopY(pos.y)
       })
 
       // 给每个swiper绑定scrollStart事件

@@ -69,8 +69,8 @@ export default {
     this.bScrollContent.on('scrollStart', () => {
       this.bScrollContent.refresh()
     })
-    this.bScrollContent.on('scroll', () => {
-      this.changeSoulSelfTopY(this.bScrollContent.y)
+    this.bScrollContent.on('scroll', (pos) => {
+      this.changeSoulSelfTopY(pos.y)
     })
   }
 }
