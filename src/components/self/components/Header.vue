@@ -1,8 +1,8 @@
 <template>
   <div class="soul-self-header">
-    <img :style="imgStyleObject" src="/static/photo1.jpg">
+    <img :style="imgStyleObject" :src="backgroundImg">
     <div class="soul-self-header-more">更多</div>
-    <div class="soul-self-header-detail">
+    <div class="soul-self-header-detail" :style="detailStyleObject">
       <div class="soul-self-header-headicon">
         <img src="@/assets/images/headicon/0.png">
       </div>
@@ -20,8 +20,9 @@ export default {
   name: 'SoulSelfHeader',
   data () {
     return {
+      backgroundImg: './static/photo1.jpg',
       titleOpacity: 0, // "我的瞬间"透明度
-      titleY: 270, // “我的瞬间”向上位移的距离
+      titleY: 320, // “我的瞬间”向上位移的距离
       imgY: 0 // 图片向上位移的距离
     }
   },
@@ -30,6 +31,12 @@ export default {
     imgStyleObject: function () {
       return {
         transform: `translateY(${this.imgY}px)`
+      }
+    },
+    /* 改变“详细信息” */
+    detailStyleObject: function () {
+      return {
+        opacity: 1 - this.titleOpacity
       }
     },
     /* 改变“我的瞬间” */
@@ -44,9 +51,9 @@ export default {
   },
   watch: {
     'soulSelf.topY': function (newValue) {
-      if (newValue < 0 && newValue > -300) {
-        this.titleOpacity = Math.abs(newValue / -300)
-        this.titleY = 300 + newValue
+      if (newValue < 0 && newValue > -310) {
+        this.titleOpacity = Math.abs(newValue / -310)
+        this.titleY = 320 + newValue
         this.imgY = newValue * 0.4
       }
     }

@@ -92,7 +92,7 @@ export default {
   methods: {
     // 获取推荐页面信息
     getSquareRecommendInfo () {
-      axios.get('/static/mock/square-recommend.json')
+      axios.get('./static/mock/square-recommend.json')
         .then(this.getSquareRecommendInfoSucc)
         .catch(function (err) {
           console.log(`【axios获取信息失败，Content.vue】：${err}`)
@@ -103,7 +103,7 @@ export default {
     },
     // 获取最新页面信息
     getSquareNewestInfo () {
-      axios.get('/static/mock/square-newest.json')
+      axios.get('./static/mock/square-newest.json')
         .then(this.getSquareNewestInfoSucc)
         .catch(function (err) {
           console.log(`【axios获取信息失败，Content.vue】：${err}`)
