@@ -66,7 +66,7 @@ export default {
     rotateX(40deg)
     rotateY(0deg)
     rotateZ(0deg);
-  /*animation: revolution 20s linear 0s infinite;*/
+  animation: revolution 20s linear 0s infinite;
   border-radius: 20px;
 }
 .point {

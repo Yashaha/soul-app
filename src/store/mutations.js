@@ -20,5 +20,8 @@ export default {
   },
   changeSoulChatIsSpreadOperate (state, is) {
     state.soulChat.isSpreadOperate_gobal = is
+  },
+  changeSoulSelfTopY (state, topY) {
+    state.soulSelf.topY = topY
   }
 }

@@ -7,10 +7,13 @@ export default {
       topY: 0 // content组件顶部滑动距离
     } // content滑动事件
   },
+  soulAdd: {
+    isShow: false // 判断显示
+  },
   soulChat: {
     isSpreadOperate_gobal: false // 是否有展开的侧滑菜单，只要有一个消息框展开了就设置为true
   },
-  soulAdd: {
-    isShow: false // 判断显示
+  soulSelf: {
+    topY: 0 // 顶部滑动距离
   }
 }
